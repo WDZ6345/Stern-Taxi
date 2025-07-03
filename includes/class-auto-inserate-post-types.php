@@ -78,12 +78,6 @@ class Auto_Inserate_Post_Types {
         );
         register_post_type( 'fahrzeug', $args );
     }
-}
-
-// Initialisierung der Klasse, um die Hooks zu registrieren
-// Dies wird normalerweise von der Haupt-Plugin-Klasse gehandhabt.
-// $auto_inserate_post_types = new Auto_Inserate_Post_Types();
-// $auto_inserate_post_types->init();
 
     /**
      * Registriert die Taxonomien für den 'fahrzeug' Post Type.
@@ -199,6 +193,11 @@ class Auto_Inserate_Post_Types {
         );
         register_taxonomy( 'kraftstoffart', array( 'fahrzeug' ), $kraftstoff_args );
     }
-}
+} // Diese schließende Klammer beendet die Klasse Auto_Inserate_Post_Types
+
+// Initialisierung der Klasse, um die Hooks zu registrieren (auskommentiert, da es von der Hauptklasse gehandhabt wird)
+// Dies wird normalerweise von der Haupt-Plugin-Klasse gehandhabt.
+// $auto_inserate_post_types = new Auto_Inserate_Post_Types();
+// $auto_inserate_post_types->init();
 
 ?>
