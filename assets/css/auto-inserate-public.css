@@ -1,0 +1,449 @@
+/**
+ * Auto Inserate Plugin - Frontend Styles
+ */
+
+/* Einzelansicht Fahrzeug */
+.auto-inserate-single-fahrzeug .fahrzeug-details-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.auto-inserate-single-fahrzeug .fahrzeug-gallery .fahrzeug-featured-image img {
+    max-width: 100%;
+    height: auto;
+    border: 1px solid #ddd;
+    padding: 5px;
+    border-radius: 4px;
+}
+.auto-inserate-single-fahrzeug .fahrzeug-gallery .fahrzeug-featured-image.placeholder {
+    width:100%;
+    min-height:300px;
+    background:#eee;
+    text-align:center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+
+.auto-inserate-single-fahrzeug .fahrzeug-meta-data h2 {
+    margin-top: 0;
+    font-size: 1.5em;
+}
+
+.auto-inserate-single-fahrzeug .fahrzeug-meta-data ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.auto-inserate-single-fahrzeug .fahrzeug-meta-data ul li {
+    padding: 8px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.auto-inserate-single-fahrzeug .fahrzeug-meta-data ul li:last-child {
+    border-bottom: none;
+}
+
+.auto-inserate-single-fahrzeug .fahrzeug-meta-data ul li strong {
+    display: inline-block;
+    min-width: 120px; /* Für bessere Ausrichtung */
+    color: #333;
+}
+
+.auto-inserate-single-fahrzeug .fahrzeug-beschreibung h2 {
+    font-size: 1.5em;
+    margin-top: 30px;
+}
+
+/* Archivansicht Fahrzeuge */
+.auto-inserate-archive-fahrzeug .fahrzeug-liste {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+}
+
+.auto-inserate-archive-fahrzeug .fahrzeug-list-item {
+    border: 1px solid #e0e0e0;
+    border-radius: 4px;
+    overflow: hidden; /* Für abgerundete Ecken bei Bildern */
+    background-color: #fff;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.auto-inserate-archive-fahrzeug .fahrzeug-list-item-inner {
+    display: flex;
+    flex-direction: column;
+}
+
+.auto-inserate-archive-fahrzeug .fahrzeug-list-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+.auto-inserate-archive-fahrzeug .fahrzeug-list-image .placeholder-image{
+    width:100%;
+    height:200px;
+    background:#eee;
+    text-align:center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #777;
+}
+
+
+.auto-inserate-archive-fahrzeug .fahrzeug-list-details {
+    padding: 15px;
+}
+
+.auto-inserate-archive-fahrzeug .fahrzeug-list-details .entry-title {
+    font-size: 1.3em;
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+.auto-inserate-archive-fahrzeug .fahrzeug-list-details .entry-title a {
+    text-decoration: none;
+    color: #333;
+}
+.auto-inserate-archive-fahrzeug .fahrzeug-list-details .entry-title a:hover {
+    color: #0073aa; /* WordPress Standard Link Hover Farbe */
+}
+
+
+.auto-inserate-archive-fahrzeug .fahrzeug-list-meta .preis {
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #0073aa;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.auto-inserate-archive-fahrzeug .fahrzeug-list-meta .quick-details {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 10px 0;
+    font-size: 0.9em;
+    color: #555;
+}
+
+.auto-inserate-archive-fahrzeug .fahrzeug-list-meta .quick-details li {
+    display: inline-block;
+    margin-right: 10px;
+    padding-right: 10px;
+    border-right: 1px solid #ddd;
+}
+.auto-inserate-archive-fahrzeug .fahrzeug-list-meta .quick-details li:last-child {
+    margin-right: 0;
+    padding-right: 0;
+    border-right: none;
+}
+
+
+.auto-inserate-archive-fahrzeug .entry-summary {
+    font-size: 0.95em;
+    color: #444;
+}
+
+/* Allgemeine Paginierung, falls benötigt */
+.auto-inserate-archive-fahrzeug .navigation.posts-navigation .nav-links {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+}
+.auto-inserate-archive-fahrzeug .navigation.posts-navigation .nav-links .nav-previous a,
+.auto-inserate-archive-fahrzeug .navigation.posts-navigation .nav-links .nav-next a {
+    padding: 10px 15px;
+    border: 1px solid #ddd;
+    text-decoration: none;
+    border-radius: 4px;
+}
+.auto-inserate-archive-fahrzeug .navigation.posts-navigation .nav-links .nav-previous a:hover,
+.auto-inserate-archive-fahrzeug .navigation.posts-navigation .nav-links .nav-next a:hover {
+    background-color: #f5f5f5;
+}
+
+/* No Results */
+.auto-inserate-archive-fahrzeug .no-results .page-title {
+    margin-bottom: 20px;
+}
+.auto-inserate-archive-fahrzeug .no-results .page-content p {
+    font-size: 1.1em;
+}
+
+/* Suchformular-Styles */
+.auto-inserate-search-form {
+    background-color: #f9f9f9;
+    padding: 20px;
+    border: 1px solid #e0e0e0;
+    border-radius: 4px;
+    margin-bottom: 30px;
+}
+
+.auto-inserate-search-form .search-form-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+}
+
+.auto-inserate-search-form .form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.auto-inserate-search-form .form-group label {
+    font-weight: bold;
+    margin-bottom: 5px;
+    font-size: 0.9em;
+    color: #333;
+}
+
+.auto-inserate-search-form .form-group input[type="search"],
+.auto-inserate-search-form .form-group input[type="number"],
+.auto-inserate-search-form .form-group select {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    font-size: 0.95em;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.auto-inserate-search-form .form-group-range .range-inputs {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.auto-inserate-search-form .form-group-range .range-inputs input[type="number"] {
+    flex: 1;
+}
+.auto-inserate-search-form .form-group-range .range-inputs span {
+    padding: 0 5px;
+}
+
+
+.auto-inserate-search-form .form-submit {
+    grid-column: 1 / -1; /* Span full width */
+    margin-top: 15px;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.auto-inserate-search-form .form-submit input[type="submit"] {
+    background-color: #0073aa;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    font-size: 1em;
+}
+.auto-inserate-search-form .form-submit input[type="submit"]:hover {
+    background-color: #005a87;
+}
+
+.auto-inserate-search-form .form-submit .reset-search {
+    color: #0073aa;
+    text-decoration: none;
+    font-size: 0.9em;
+}
+.auto-inserate-search-form .form-submit .reset-search:hover {
+    text-decoration: underline;
+}
+
+/* WordPress Galerie Styles Anpassungen */
+.auto-inserate-single-fahrzeug .gallery {
+    margin-bottom: 1.5em;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); /* Responsive Spalten */
+    gap: 10px;
+}
+
+.auto-inserate-single-fahrzeug .gallery-item {
+    text-align: center;
+}
+
+.auto-inserate-single-fahrzeug .gallery-item .gallery-icon a {
+    display: block;
+    border: 1px solid #ddd;
+    padding: 4px;
+    border-radius: 3px;
+    background-color: #fff;
+    transition: border-color 0.3s ease;
+}
+
+.auto-inserate-single-fahrzeug .gallery-item .gallery-icon a:hover {
+    border-color: #0073aa;
+}
+
+.auto-inserate-single-fahrzeug .gallery-item .gallery-icon img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.auto-inserate-single-fahrzeug .gallery-caption {
+    font-size: 0.85em;
+    color: #555;
+    padding: 5px 0;
+    text-align: center;
+}
+
+/* Falls Jetpack Carousel oder eine andere Lightbox verwendet wird,
+   sind diese Basis-Stile gut. Ansonsten könnte man hier noch
+   eigene Lightbox-Stile hinzufügen oder ein JS dafür einbinden. */
+
+/* Anpassung für die Haupt-Beschreibung, wenn eine Galerie davor ist */
+.auto-inserate-single-fahrzeug .fahrzeug-beschreibung .gallery + h2,
+.auto-inserate-single-fahrzeug .fahrzeug-beschreibung .gallery + p {
+    margin-top: 20px; /* Etwas Abstand nach der Galerie */
+}
+
+/* Kontaktformular Styles */
+.auto-inserate-kontaktformular {
+    margin-top: 30px;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border: 1px solid #e0e0e0;
+    border-radius: 4px;
+}
+
+.auto-inserate-kontaktformular h3 {
+    margin-top: 0;
+    margin-bottom: 10px;
+    font-size: 1.4em;
+}
+.auto-inserate-kontaktformular p {
+    margin-bottom: 15px;
+    font-size: 0.95em;
+}
+
+.auto-inserate-kontaktformular .form-group {
+    margin-bottom: 15px;
+}
+
+.auto-inserate-kontaktformular .form-group label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+    font-size: 0.9em;
+}
+.auto-inserate-kontaktformular .form-group label .required {
+    color: red;
+    font-weight: bold;
+}
+
+
+.auto-inserate-kontaktformular .form-group input[type="text"],
+.auto-inserate-kontaktformular .form-group input[type="email"],
+.auto-inserate-kontaktformular .form-group input[type="tel"],
+.auto-inserate-kontaktformular .form-group textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    box-sizing: border-box;
+}
+.auto-inserate-kontaktformular .form-group textarea {
+    min-height: 100px;
+    resize: vertical;
+}
+
+.auto-inserate-kontaktformular .form-submit input[type="submit"] {
+    background-color: #0073aa; /* Gleiche Farbe wie Such-Button */
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: background-color 0.3s ease;
+}
+.auto-inserate-kontaktformular .form-submit input[type="submit"]:hover {
+    background-color: #005a87;
+}
+
+/* Statusmeldungen */
+.auto-inserate-kontaktformular .kontakt-status {
+    padding: 10px 15px;
+    margin-bottom: 15px;
+    border-radius: 3px;
+    font-weight: bold;
+}
+.auto-inserate-kontaktformular .kontakt-erfolg {
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+}
+.auto-inserate-kontaktformular .kontakt-fehler {
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+}
+
+/* Kartenlink-Style */
+.auto-inserate-single-fahrzeug .fahrzeug-meta-data .map-link {
+    font-size: 0.9em;
+    margin-left: 5px;
+    text-decoration: none;
+    color: #0073aa;
+}
+
+.auto-inserate-single-fahrzeug .fahrzeug-meta-data .map-link:hover {
+    text-decoration: underline;
+}
+
+/* Shortcode Fahrzeugliste Styles */
+.auto-inserate-shortcode-liste.fahrzeug-liste {
+    /* Verwendet die gleichen Grid-Styles wie .auto-inserate-archive-fahrzeug .fahrzeug-liste */
+    /* Ggf. spezifische Anpassungen hier, falls notwendig */
+    margin-bottom: 20px; /* Abstand nach der Liste */
+}
+
+.auto-inserate-shortcode-liste .fahrzeug-list-item .entry-title {
+    font-size: 1.2em; /* Etwas kleiner als im Archiv, falls gewünscht */
+}
+
+/* Spalten für Shortcode-Liste (Beispiel für 2, 3 und 4 Spalten) */
+/* Diese Klassen werden dynamisch im Shortcode-Output gesetzt (.spalten-X) */
+.auto-inserate-shortcode-liste.spalten-1 {
+    grid-template-columns: 1fr;
+}
+.auto-inserate-shortcode-liste.spalten-2 {
+    grid-template-columns: repeat(2, 1fr);
+}
+.auto-inserate-shortcode-liste.spalten-3 {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Default von Archiv übernehmen oder spezifisch */
+}
+@media (min-width: 768px) {
+    .auto-inserate-shortcode-liste.spalten-3 {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+.auto-inserate-shortcode-liste.spalten-4 {
+    grid-template-columns: repeat(2, 1fr);
+}
+@media (min-width: 992px) {
+    .auto-inserate-shortcode-liste.spalten-4 {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+.auto-inserate-shortcode-liste .placeholder-image {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #eee;
+    color: #777;
+    min-height: 150px; /* Höhe für Platzhalter in der Liste */
+}
+.auto-inserate-shortcode-liste .placeholder-image span {
+    padding: 10px;
+}
