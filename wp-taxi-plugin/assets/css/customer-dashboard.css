@@ -1,0 +1,160 @@
+/* WP Taxi Plugin - Customer Dashboard Styles */
+
+#wp-taxi-customer-dashboard {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-family: Arial, sans-serif;
+}
+
+#wp-taxi-customer-dashboard h2,
+#wp-taxi-customer-dashboard h3 {
+    color: #333;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 10px;
+    margin-top: 20px;
+    margin-bottom: 15px;
+}
+
+#wp-taxi-customer-dashboard h2:first-child {
+    margin-top: 0;
+}
+
+#booking-form p,
+#driver-specific-fields p /* from registration, just in case */
+ {
+    margin-bottom: 15px;
+}
+
+#booking-form label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #555;
+}
+
+#booking-form input[type="text"],
+#booking-form input[type="email"],
+#booking-form input[type="password"],
+#booking-form select {
+    width: calc(100% - 22px); /* Account for padding and border */
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box; /* Important for width calculation */
+}
+
+#booking-form button,
+.button,
+input[type="submit"] /* General button styling */
+{
+    background-color: #0073aa; /* WordPress blue */
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: background-color 0.3s ease;
+}
+
+#booking-form button:hover,
+.button:hover,
+input[type="submit"]:hover {
+    background-color: #005a87;
+}
+
+#customer-map-container {
+    height: 400px;
+    width: 100%;
+    margin-bottom: 20px;
+    background-color: #e0e0e0; /* Placeholder background */
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+#route-info {
+    padding: 10px;
+    background-color: #eef;
+    border: 1px solid #cce;
+    border-radius: 4px;
+    margin-bottom: 15px;
+}
+
+#route-info p {
+    margin: 5px 0;
+    color: #333;
+}
+#route-info span {
+    font-weight: bold;
+}
+
+
+#customer-rides-history ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+#customer-rides-history li {
+    padding: 8px 0;
+    border-bottom: 1px dotted #eee;
+}
+
+#customer-rides-history li:last-child {
+    border-bottom: none;
+}
+
+/* Error and Success Messages */
+.wp-taxi-error {
+    color: red;
+    border: 1px solid red;
+    padding: 10px;
+    margin-bottom: 15px;
+    background-color: #ffe0e0;
+    border-radius: 4px;
+}
+
+.wp-taxi-success {
+    color: green;
+    border: 1px solid green;
+    padding: 10px;
+    margin-bottom: 15px;
+    background-color: #e0ffe0;
+    border-radius: 4px;
+}
+
+#booking-message {
+    margin-top: 15px;
+    padding: 10px;
+    border-radius: 4px;
+}
+
+#booking-message.success {
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+}
+
+#booking-message.error {
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+    #wp-taxi-customer-dashboard {
+        margin: 10px;
+        padding: 15px;
+    }
+
+    #booking-form input[type="text"],
+    #booking-form input[type="email"],
+    #booking-form input[type="password"],
+    #booking-form select {
+        width: 100%; /* Full width on smaller screens */
+    }
+}
