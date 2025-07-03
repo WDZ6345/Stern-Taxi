@@ -115,14 +115,40 @@ get_header(); ?>
                                 <?php if ( ! empty( $standort_adresse ) ) : ?>
                                     <li><strong><?php esc_html_e( 'Standort:', 'auto-inserate' ); ?></strong>
                                         <?php echo esc_html( $standort_adresse ); ?>
-                                        <a href="https://www.google.com/maps?q=<?php echo urlencode( $standort_adresse ); ?>" target="_blank" rel="noopener noreferrer" class="map-link">
-                                            (<?php esc_html_e( 'Auf Karte anzeigen', 'auto-inserate' ); ?>)
-                                        </a>
+                                        <?php
+                                        // Prüfen, ob API Key und Koordinaten für die Karte vorhanden sind
+                                        $options = get_option( 'auto_inserate_settings' );
+                                        $api_key = isset( $options['google_maps_api_key'] ) ? $options['google_maps_api_key'] : '';
+                                        $lat = get_post_meta( $post_id, '_fahrzeug_lat', true );
+                                        $lng = get_post_meta( $post_id, '_fahrzeug_lng', true );
+
+                                        if ( ! empty( $api_key ) && ! empty( $lat ) && ! empty( $lng ) ) :
+                                            // Link wird nicht mehr primär angezeigt, wenn Karte da ist,
+                                            // aber als Fallback oder zusätzliche Info nützlich.
+                                            // Man könnte ihn auch ganz entfernen, wenn die Karte angezeigt wird.
+                                            // echo ' <a href="https://www.google.com/maps?q=' . urlencode( $standort_adresse ) . '" target="_blank" rel="noopener noreferrer" class="map-link">(' . esc_html__( 'Extern öffnen', 'auto-inserate' ) . ')</a>';
+                                        else : // Fallback, wenn keine Karte angezeigt werden kann (kein API Key oder keine Koordinaten)
+                                            ?>
+                                            <a href="https://www.google.com/maps?q=<?php echo urlencode( $standort_adresse ); ?>" target="_blank" rel="noopener noreferrer" class="map-link">
+                                                (<?php esc_html_e( 'Auf Karte anzeigen', 'auto-inserate' ); ?>)
+                                            </a>
+                                        <?php endif; ?>
                                     </li>
                                 <?php endif; ?>
                             </ul>
+                        </div> <!-- .fahrzeug-meta-data -->
+                    </div> <!-- .fahrzeug-details-grid -->
+
+                    <?php
+                    // Karte hier anzeigen, wenn Bedingungen erfüllt sind
+                    if ( ! empty( $api_key ) && ! empty( $lat ) && ! empty( $lng ) ) : ?>
+                    <div class="fahrzeug-karten-container">
+                        <h3><?php esc_html_e( 'Standort auf Karte', 'auto-inserate' ); ?></h3>
+                        <div id="fahrzeug-karte" style="height: 400px; width: 100%; margin-bottom: 20px;">
+                            <p><?php esc_html_e( 'Karte wird geladen...', 'auto-inserate' ); ?></p>
                         </div>
                     </div>
+                    <?php endif; ?>
 
                     <div class="fahrzeug-beschreibung">
                         <h2><?php esc_html_e( 'Beschreibung', 'auto-inserate' ); ?></h2>

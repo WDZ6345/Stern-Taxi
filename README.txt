@@ -22,7 +22,7 @@ Das "Auto Inserate" Plugin für WordPress ermöglicht es Ihnen, Fahrzeuginserate
 *   **Erweiterte Suche:** Ein leistungsstarkes Suchformular (per Shortcode einfügbar), um Fahrzeuge nach verschiedenen Kriterien zu filtern.
 *   **Bildergalerie:** Nutzen Sie die WordPress-Galeriefunktion, um mehrere Bilder pro Fahrzeug anzuzeigen.
 *   **Lead-Erfassung:** Ein Kontaktformular auf jeder Fahrzeugdetailseite, damit Interessenten Anfragen senden können.
-*   **Kartenlink:** Zeigen Sie den Fahrzeugstandort über einen Link zu Google Maps an.
+*   **Google Maps Integration:** Zeigt den Fahrzeugstandort auf einer interaktiven Karte an (benötigt API Key). Inklusive serverseitigem Geocoding der Adresse.
 *   **Shortcodes:**
     *   `[auto_inserate_suche]`: Zeigt das erweiterte Suchformular an.
     *   `[auto_inserate_fahrzeugliste anzahl="5" sortierung="datum_ab"]`: Zeigt eine Liste von Fahrzeugen an (weitere Attribute verfügbar).
@@ -34,11 +34,20 @@ Das "Auto Inserate" Plugin für WordPress ermöglicht es Ihnen, Fahrzeuginserate
 1.  Laden Sie den Plugin-Ordner `auto-inserate` in das Verzeichnis `/wp-content/plugins/` hoch.
 2.  Aktivieren Sie das Plugin über das Menü "Plugins" in WordPress.
 3.  Gehen Sie zu "Fahrzeuge" im Admin-Menü, um Ihre ersten Inserate hinzuzufügen.
-4.  Fügen Sie den Shortcode `[auto_inserate_suche]` auf einer Seite ein, um das Suchformular anzuzeigen.
-5.  Die Fahrzeug-Archivseite finden Sie standardmäßig unter `your-website.com/fahrzeuge/`.
-6.  (Optional) Erstellen Sie Template-Dateien `single-fahrzeug.php` und `archive-fahrzeug.php` in Ihrem Theme-Ordner (oder `auto-inserate` Unterordner), um die Darstellung anzupassen. Das Plugin bringt eigene Templates mit, falls keine Theme-spezifischen vorhanden sind.
+4.  **Google Maps API Key konfigurieren (optional):** Um die interaktive Kartenfunktion zu nutzen, gehen Sie zu "Fahrzeuge" > "Einstellungen" und geben Sie Ihren Google Maps API Key ein. Stellen Sie sicher, dass die "Maps JavaScript API" und die "Geocoding API" in Ihrer Google Cloud Console für diesen Key aktiviert sind.
+5.  Fügen Sie den Shortcode `[auto_inserate_suche]` auf einer Seite ein, um das Suchformular anzuzeigen.
+6.  Die Fahrzeug-Archivseite finden Sie standardmäßig unter `your-website.com/fahrzeuge/`.
+7.  (Optional) Erstellen Sie Template-Dateien `single-fahrzeug.php` und `archive-fahrzeug.php` in Ihrem Theme-Ordner (oder `auto-inserate` Unterordner), um die Darstellung anzupassen. Das Plugin bringt eigene Templates mit, falls keine Theme-spezifischen vorhanden sind.
 
 == Frequently Asked Questions ==
+
+= Wie richte ich die Google Maps Integration ein? =
+
+1.  **API Key besorgen:** Sie benötigen einen Google Maps API Key. Diesen erhalten Sie über die <a href="https://console.cloud.google.com/google/maps-apis/overview" target="_blank">Google Cloud Console</a>.
+2.  **APIs aktivieren:** Stellen Sie sicher, dass für Ihren API Key mindestens die "Maps JavaScript API" und die "Geocoding API" aktiviert sind.
+3.  **API Key im Plugin eintragen:** Gehen Sie im WordPress Admin-Bereich zu "Fahrzeuge" > "Einstellungen". Tragen Sie dort Ihren API Key in das vorgesehene Feld ein und speichern Sie die Änderungen.
+4.  **Standortadresse eingeben:** Beim Erstellen oder Bearbeiten eines Fahrzeugs geben Sie die vollständige Adresse in das Feld "Standort (Adresse)" ein.
+Nach dem Speichern versucht das Plugin, die Adresse automatisch in Koordinaten umzuwandeln (Geocoding). Wenn dies erfolgreich war und der API Key korrekt konfiguriert ist, wird auf der Detailseite des Fahrzeugs eine interaktive Karte angezeigt. Wenn keine Karte angezeigt wird, prüfen Sie Ihren API Key, die aktivierten APIs in der Google Console und ob die eingegebene Adresse von Google Maps gefunden werden kann.
 
 = Wie verwende ich den Shortcode für die Fahrzeugliste? =
 
@@ -102,10 +111,12 @@ Um die Funktionalität des Plugins zu testen, sollten folgende Szenarien überpr
     *   Neues Fahrzeug erstellen: Alle Meta-Felder (Preis, KM, EZ, etc.), Taxonomien (Marke, Modell, etc.), Titel, Beschreibung und Beitragsbild können eingegeben und gespeichert werden?
     *   Fahrzeug bearbeiten: Werden alle Daten korrekt geladen und können geändert und gespeichert werden?
     *   WordPress-Galerie in Beschreibung einfügen und speichern.
+    *   Standortadresse eingeben und prüfen, ob nach dem Speichern eine Karte auf der Einzelansicht erscheint (API Key vorausgesetzt).
 3.  **Frontend-Anzeige (Einzelansicht):**
     *   Wird das Fahrzeug korrekt mit allen Details (Titel, Beschreibung, Meta-Daten, Taxonomien, Beitragsbild) angezeigt?
     *   Wird eine eingefügte Galerie korrekt angezeigt?
-    *   Funktioniert der Kartenlink (falls Adresse eingegeben)?
+    *   Wird die Google Map korrekt angezeigt, wenn Adresse geocodiert wurde und API Key vorhanden ist?
+    *   Wird der einfache Kartenlink angezeigt, wenn keine eingebettete Karte möglich ist (aber Adresse vorhanden)?
     *   Wird das Kontaktformular angezeigt?
 4.  **Frontend-Anzeige (Archivansicht /fahrzeuge/):**
     *   Werden alle veröffentlichten Fahrzeuge in einer Grid-Ansicht angezeigt (Bild, Titel, Kurzinformationen)?

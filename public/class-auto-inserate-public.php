@@ -18,7 +18,7 @@ class Auto_Inserate_Public {
      * Hook in WordPress.
      */
     public function init() {
-        add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_styles' ) );
+        add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_frontend_assets' ) );
         add_filter( 'template_include', array( $this, 'template_loader' ) );
         add_action( 'pre_get_posts', array( $this, 'handle_fahrzeug_suche' ) );
 
@@ -32,15 +32,55 @@ class Auto_Inserate_Public {
     }
 
     /**
-     * Lädt die Frontend-Stylesheets.
+     * Lädt die Frontend-Stylesheets und Skripte.
      */
-    public function enqueue_styles() {
+    public function enqueue_frontend_assets() {
+        // CSS immer laden
         wp_enqueue_style(
             'auto-inserate-public',
             AUTO_INSERATE_PLUGIN_URL . 'assets/css/auto-inserate-public.css',
             array(),
             AUTO_INSERATE_VERSION
         );
+
+        // Google Maps API und unser Karten-Skript nur auf Einzelansicht Fahrzeug laden, wenn API Key vorhanden
+        if ( is_singular( 'fahrzeug' ) ) {
+            $options = get_option( 'auto_inserate_settings' );
+            $api_key = isset( $options['google_maps_api_key'] ) ? $options['google_maps_api_key'] : '';
+            $post_id = get_the_ID();
+            $lat = get_post_meta( $post_id, '_fahrzeug_lat', true );
+            $lng = get_post_meta( $post_id, '_fahrzeug_lng', true );
+
+            if ( ! empty( $api_key ) && ! empty( $lat ) && ! empty( $lng ) ) {
+                wp_enqueue_script(
+                    'google-maps-api',
+                    'https://maps.googleapis.com/maps/api/js?key=' . esc_attr( $api_key ) . '&callback=initAutoInserateMap',
+                    array(),
+                    null, // Keine Version für externes Skript
+                    true  // Im Footer laden
+                );
+
+                wp_enqueue_script(
+                    'auto-inserate-map',
+                    AUTO_INSERATE_PLUGIN_URL . 'assets/js/auto-inserate-map.js',
+                    array( 'google-maps-api' ), // Abhängigkeit von der Google Maps API
+                    AUTO_INSERATE_VERSION,
+                    true // Im Footer laden
+                );
+
+                // Daten an unser map Skript übergeben
+                wp_localize_script(
+                    'auto-inserate-map',
+                    'autoInserateMapData',
+                    array(
+                        'lat' => floatval( $lat ),
+                        'lng' => floatval( $lng ),
+                        'zoom' => 15, // Standard Zoom Level, könnte man konfigurierbar machen
+                        'markerTitle' => get_the_title( $post_id )
+                    )
+                );
+            }
+        }
     }
 
     /**
