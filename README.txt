@@ -1,5 +1,5 @@
 === Auto Inserate ===
-Contributors: Dein Name
+Contributors: WDZ
 Tags: auto, car, listings, dealership, vehicle, inserate, fahrzeuge, autohandel
 Requires at least: 5.0
 Tested up to: 6.4
