@@ -243,17 +243,17 @@ class WP_Taxi_Auth_Shortcodes {
                 // Erfolgreich angemeldet, wohin umleiten?
                 // Basierend auf der Rolle umleiten
                 if ( in_array( 'driver', (array) $user->roles ) ) {
-                    // TODO: Fahrer-Dashboard-URL
-                    wp_redirect( home_url( '/fahrer-dashboard' ) );
+                    // TODO: Fahrer-Dashboard-URL aus Einstellungen holen
+                    wp_redirect( home_url( get_option('wp_taxi_plugin_driver_dashboard_slug', '/fahrer-dashboard') ) );
                 } elseif ( in_array( 'customer', (array) $user->roles ) ) {
-                    // TODO: Kunden-Dashboard-URL
-                    wp_redirect( home_url( '/kunden-dashboard' ) );
+                    // TODO: Kunden-Dashboard-URL aus Einstellungen holen
+                    wp_redirect( home_url( get_option('wp_taxi_plugin_customer_dashboard_slug', '/kunden-dashboard') ) );
                 } else {
                     wp_redirect( home_url() ); // Standard-Umleitung
                 }
                 exit;
             }
-        }
+        } // <--- Diese schließende Klammer hat gefehlt
     }
 }
 
